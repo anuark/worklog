@@ -38,16 +38,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//http.HandleFunc("/", root)
-	//log.Fatal(http.ListenAndServe("localhost:8080", nil))
+	http.HandleFunc("/", root)
+	http.HandleFunc("/create", actionCreate)
+	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 
-	dateRange, err := time.Parse("2006-01-02", *inputDate)
-	if err != nil {
-		log.Fatal(err)
-	}
-	_ = dateRange
+	//dateRange, err := time.Parse("2006-01-02", *inputDate)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//_ = dateRange
 
-	generatePdf(dateRange)
+	//generatePdf(dateRange)
 }
 
 func table2(x, y float64, cols [][]Column) {
@@ -222,7 +223,7 @@ func generatePdf(inputDate time.Time) {
 // 	fmt.Println("tbl called")
 // }
 
-func root(w http.ResponseWriter, r *http.Request) {
+func actionCreate(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(1024)
 	task := newTask()
 	val := r.PostFormValue("desc")
@@ -230,6 +231,10 @@ func root(w http.ResponseWriter, r *http.Request) {
 		task.Description = r.PostFormValue("desc")
 		task.Save()
 	}
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "%v", "Hello world")
 }
 
 func newTask() *Task {
