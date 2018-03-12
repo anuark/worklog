@@ -32,11 +32,11 @@ func main() {
 
 	clientCtx = context.Background()
 
-	var err error
-	dsClient, err = datastore.NewClient(clientCtx, "worklog-191500")
-	if err != nil {
-		log.Fatal(err)
-	}
+	// var err error
+	// dsClient, err = datastore.NewClient(clientCtx, "worklog-191500")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
 	http.HandleFunc("/", root)
 	http.HandleFunc("/create", actionCreate)
