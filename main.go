@@ -17,43 +17,7 @@ var _ = datastore.ErrNoSuchEntity
 var _ = context.Background()
 var _ = gofpdf.CnProtectAnnotForms
 
-type Task struct {
-	Description string
-	Created     time.Time
-}
-
-var dsClient *datastore.Client
-var clientCtx context.Context
 var pdf *gofpdf.Fpdf
-
-func main() {
-	inputDate := flag.String("since", time.Now().Format("2006-01-02"), "Generate pdf data since the input date.")
-	flag.Parse()
-
-	clientCtx = context.Background()
-
-	// var err error
-	// dsClient, err = datastore.NewClient(clientCtx, "worklog-191500")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	http.HandleFunc("/", root)
-	http.HandleFunc("/create", actionCreate)
-	log.Fatal(http.ListenAndServe("localhost:8080", nil))
-
-	//dateRange, err := time.Parse("2006-01-02", *inputDate)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//_ = dateRange
-
-	//generatePdf(dateRange)
-}
-
-func table2(x, y float64, cols [][]Column) {
-
-}
 
 func generatePdf(inputDate time.Time) {
 	pdf = gofpdf.New("P", "mm", "A4", "")
@@ -108,7 +72,9 @@ func generatePdf(inputDate time.Time) {
 	var allTasks []Task
 	var table *Table
 
-	for t := dsClient.Run(clientCtx, q); ; {
+	n := 0
+
+	for t := dsClient.Run(dsCtx, q); ; {
 		var task Task
 		_, err := t.Next(&task)
 		allTasks = append(allTasks, task)
@@ -124,6 +90,7 @@ func generatePdf(inputDate time.Time) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		newWeek := false
 		switch true {
 		case prevTask.Description == "":
@@ -139,20 +106,25 @@ func generatePdf(inputDate time.Time) {
 		_ = table
 
 		if newWeek {
-			// 	// table(10, 70+nextH, 38, 10, content)
-			// 	nextH = 10 * float64(len(content)+1)
-			// 	content = [][]string{{"Description", "Day", "Hours", "Rate", "Amount"}}
-			// 	table := NewTable(10, nextH, columns)
-			// 	pdf.AddPage()
-			// 	pdf.CellFormat(10, 0, "New week 1 - 2 Jan", "", 0, "L", false, 0, "")
+			pdf.AddPage()
+			// pdf.CellFormat(10, 0, "New week 1 - 2 Jan", "", 0, "L", false, 0, "")
+			// table(10, 70+nextH, 38, 10, content)
+			// nextH = 10 * float64(len(content)+1)
+			table = NewTable(10, 10+nextH, columns)
 		}
 
-		fmt.Println(newWeek)
+		// fmt.Println(newWeek)
 
 		table.AddRow([]string{task.Description, task.Created.Format("Monday"), "8", "$25.00", "$200.00"})
 		// content = append(content, []string{task.Description, task.Created.Format("Monday"), "8", "$25.00", "$200"})
 		// content = append(content, []Column{Content: task.Description, Width: 50, Height: 10}, {Content: task.Created.Format("Monday"), Width: 30, Height: 10}, {Content: "8", 30, Height: 10}, {Content: "$25.00", Width: 30, Height: 10}, {Content: "$200", Width: 30, Height: 10}})
 		prevTask = task
+
+		if n == 1 {
+			break
+		}
+
+		n++
 	}
 
 	fmt.Println(allTasks)
@@ -223,32 +195,33 @@ func generatePdf(inputDate time.Time) {
 // 	fmt.Println("tbl called")
 // }
 
-func actionCreate(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm(1024)
-	task := newTask()
-	val := r.PostFormValue("desc")
-	if len(val) > 1 {
-		task.Description = r.PostFormValue("desc")
-		task.Save()
-	}
-}
+var dsClient *datastore.Client
+var dsCtx context.Context
+var user User
 
-func index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "%v", "Hello world")
-}
+func main() {
+	inputDate := flag.String("since", time.Now().Format("2006-01-02"), "Generate pdf data since the input date.")
+	flag.Parse()
 
-func newTask() *Task {
-	return &Task{
-		Created: time.Now(),
-	}
-}
+	dsCtx = context.Background()
 
-func (e *Task) Save() {
-	k := datastore.IncompleteKey("Task", nil)
-
-	if _, err := dsClient.Put(clientCtx, k, e); err != nil {
+	var err error
+	dsClient, err = datastore.NewClient(dsCtx, "worklog-191500")
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("New Task with description %q\n", e.Description)
+	http.HandleFunc("/", Chain(Index, Method("GET"), Log(), Auth()))
+	http.HandleFunc("/user/create", Chain(UserCreate, Method("POST"), Log()))
+	http.HandleFunc("/auth", Chain(UserAuth, Method("POST"), Log()))
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+
+	_ = inputDate
+	dateRange, err := time.Parse("2006-01-02", *inputDate)
+	if err != nil {
+		log.Fatal(err)
+	}
+	_ = dateRange
+
+	// generatePdf(dateRange)
 }

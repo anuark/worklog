@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/pkg/errors"
 )
 
@@ -61,6 +63,8 @@ func (t *Table) printRow(columns []Column) {
 			pdf.SetFont("Arial", "", 12)
 		}
 
+		calcDimensions(col)
+
 		pdf.CellFormat(col.Width, col.Height, col.Content, "", 0, "L", false, 0, "")
 
 		// if i == 0 {
@@ -74,6 +78,16 @@ func (t *Table) printRow(columns []Column) {
 	pdf.Ln(10)
 	t.relHeight = lastHeight * float64(len(t.Columns))
 	t.CurrentLine++
+}
+
+const letterWidth = 1
+const descriptionWidth = 60
+
+func calcDimensions(col Column) {
+	totalLength := len(col.Content) * letterWidth
+	if totalLength > descriptionWidth {
+		fmt.Println("greater")
+	}
 }
 
 // Column of Table.
