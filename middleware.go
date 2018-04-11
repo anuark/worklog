@@ -40,64 +40,77 @@ func Before() Middleware {
 // }
 
 // Log .
-func Log() Middleware {
-	return func(f http.HandlerFunc) http.HandlerFunc {
-		return func(w http.ResponseWriter, r *http.Request) {
-			start := time.Now()
-			ctx := r.Context()
-			user := UserFromContext(ctx)
-			id := user.AuthKey
-
-			defer func() { log.Printf("%s [%s] %s", time.Since(start), id, r.URL.Path) }()
-
-			// Call next middelware/handler in chain
-			f(w, r)
+func Log(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		ctx := r.Context()
+		var id string
+		if user, ok := UserFromContext(ctx); ok {
+			id = user.AuthKey
+		} else {
+			id = "-"
 		}
-	}
+
+		defer func() { log.Printf("%s [%s] (%s) %s", time.Since(start), id, r.Method, r.URL.Path) }()
+
+		next.ServeHTTP(w, r)
+	})
 }
 
 // Auth .
-func Auth() Middleware {
-	return func(f http.HandlerFunc) http.HandlerFunc {
-		return func(w http.ResponseWriter, r *http.Request) {
-			authKey := r.Header["Authorization"]
-			if authKey == nil {
-				http.Error(w, "No Bearer Token.", http.StatusForbidden)
-				return
-			}
-
-			key := strings.Split(authKey[0], " ")[1]
-			q := datastore.NewQuery("User").Filter("authKey =", key)
-			authUser := []User{}
-			if _, err := dsClient.GetAll(dsCtx, q, &authUser); err != nil {
-				log.Fatal(err)
-			}
-
-			if len(authUser) == 0 {
-				http.Error(w, "Wrong authentication token.", http.StatusForbidden)
-				return
-			}
-
-			ctx := r.Context()
-			ctx = UserNewContext(ctx, authUser[0])
-
-			// Call next middelware/handler in chain
-			f(w, r.WithContext(ctx))
+func Auth(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		authKey := r.Header["Authorization"]
+		if authKey == nil {
+			http.Error(w, "No Bearer Token.", http.StatusForbidden)
+			return
 		}
-	}
+
+		var key []string
+		if key = strings.Split(authKey[0], " "); len(key) < 2 {
+			http.Error(w, "Wrong Bearer token format.", http.StatusBadRequest)
+			return
+		}
+
+		q := datastore.NewQuery("User").Filter("authKey =", key[1])
+		authUser := []User{}
+		if _, err := dsClient.GetAll(dsCtx, q, &authUser); err != nil {
+			log.Fatal(err)
+		}
+
+		if len(authUser) == 0 {
+			http.Error(w, "Wrong authentication token.", http.StatusForbidden)
+			return
+		}
+
+		ctx := r.Context()
+		ctx = UserNewContext(ctx, authUser[0])
+
+		next.ServeHTTP(w, r)
+	})
 }
 
-// Method .
-func Method(m string) Middleware {
-	return func(f http.HandlerFunc) http.HandlerFunc {
-		return func(w http.ResponseWriter, r *http.Request) {
-			if r.Method != m {
-				http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
-				return
-			}
+// Cors .
+func Cors(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Access-Control-Allow-Origin", "*")
 
-			// Call next middelware
-			f(w, r)
+		w.Header().Add("Access-Control-Expose-Headers", "X-Total-Count")
+		if r.Method == "OPTIONS" {
+			w.Header().Add("Access-Control-Allow-Methods", "POST, DELETE, PATCH")
+			w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+			return
 		}
-	}
+
+		next.ServeHTTP(w, r)
+	})
+}
+
+// JSONContentType All responses will be json Content-Type
+func JSONContentType(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Content-Type", "application/json")
+
+		next.ServeHTTP(w, r)
+	})
 }

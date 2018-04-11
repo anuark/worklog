@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/gorilla/mux"
+
 	"cloud.google.com/go/datastore"
 	"github.com/jung-kurt/gofpdf"
 	"google.golang.org/api/iterator"
@@ -211,10 +213,27 @@ func main() {
 		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", Chain(Index, Method("GET"), Log(), Auth()))
-	http.HandleFunc("/user/create", Chain(UserCreate, Method("POST"), Log()))
-	http.HandleFunc("/auth", Chain(UserAuth, Method("POST"), Log()))
-	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+	r := mux.NewRouter()
+	r.Use(Log, Cors, JSONContentType)
+
+	// Site
+	r.HandleFunc("/", Index).Methods("GET")
+	r.HandleFunc("/auth", Authenticate).Methods("POST", "OPTIONS")
+
+	// User
+	s := r.PathPrefix("/users").Subrouter()
+	s.Use(Auth)
+	s.HandleFunc("", UserList).Methods("GET", "OPTIONS")
+	s.HandleFunc("/", UserCreate).Methods("POST", "OPTIONS")
+	// s.Use(log, Auth)
+
+	// Tasks
+	s = r.PathPrefix("/tasks").Subrouter()
+	s.Use(Auth)
+	s.HandleFunc("", TaskList).Methods("GET", "OPTIONS")
+	s.HandleFunc("/{taskId}", TaskCreate).Methods("POST", "OPTIONS")
+
+	log.Fatal(http.ListenAndServe("localhost:8000", r))
 
 	_ = inputDate
 	dateRange, err := time.Parse("2006-01-02", *inputDate)
