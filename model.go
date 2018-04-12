@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"cloud.google.com/go/datastore"
 )
@@ -23,8 +23,9 @@ type Model struct {
 // Get .
 func (m Model) Get(keyID int64, model interface{}) {
 	k := datastore.IDKey(m.Kind, keyID, nil)
+	fmt.Println(m.Kind, keyID)
 	if err := dsClient.Get(dsCtx, k, model); err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 }
 
@@ -38,13 +39,13 @@ func (m *Model) Save(model interface{}) {
 	}
 
 	if _, err := dsClient.Put(dsCtx, k, model); err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 }
 
 // Delete .
 func (m *Model) Delete() {
 	if err := dsClient.Delete(dsCtx, m.Key); err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 }

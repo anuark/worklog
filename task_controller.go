@@ -2,10 +2,13 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/gorilla/mux"
 
 	"cloud.google.com/go/datastore"
 	"google.golang.org/api/iterator"
@@ -72,9 +75,51 @@ func TaskList(w http.ResponseWriter, r *http.Request) {
 func TaskCreate(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(1024)
 	task := NewTask()
-	val := r.PostFormValue("desc")
+
+	var t Task
+	err := decorder.Decode(&t)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	if len(val) > 1 {
 		task.Description = r.PostFormValue("desc")
 		task.Save(task)
 	}
+}
+
+// TaskUpdate .
+func TaskUpdate(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, _ := strconv.Atoi(vars["taskId"])
+	t, err := findTask(int64(id), w)
+	if err != nil {
+		return
+	}
+	fmt.Println(t)
+	fmt.Fprintf(w, "{\"message\": \"success\"}")
+}
+
+// TaskDelete .
+func TaskDelete(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, _ := strconv.Atoi(vars["taskId"])
+	t, err := findTask(int64(id), w)
+	if err != nil {
+		log.Fatal(err)
+	}
+	t.Delete()
+}
+
+func findTask(id int64, w http.ResponseWriter) (*Task, error) {
+	t := NewTask()
+	t.Get(id, t)
+	var err error
+	if t.Key == nil {
+		http.Error(w, "No task with id: "+string(id), http.StatusNotFound)
+		err = errors.New("No task with id: " + string(id))
+		return t, err
+	}
+
+	return t, err
 }

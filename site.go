@@ -15,10 +15,7 @@ import (
 
 // Index Action for listing tasks
 func Index(w http.ResponseWriter, r *http.Request) {
-	u := NewUser()
-	u.SetPassword("asd123")
-	u.Email = "jaicof@gmail.com"
-	u.Save(u)
+	fmt.Fprintf(w, "%v", "Hello world")
 }
 
 type authStruct struct {
@@ -36,7 +33,7 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	var t authStruct
 	err := decoder.Decode(&t)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	defer r.Body.Close()
 
@@ -60,7 +57,7 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(h, time.Now().String())
 	hash := h.Sum(nil)
 	users[0].AuthKey = fmt.Sprintf("%x", hash)
-	// users[0].Save()
+	users[0].Save()
 
 	fmt.Fprint(w, "{\"token\": \""+users[0].AuthKey+"\"}")
 }

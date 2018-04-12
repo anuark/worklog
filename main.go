@@ -222,16 +222,17 @@ func main() {
 
 	// User
 	s := r.PathPrefix("/users").Subrouter()
-	s.Use(Auth)
 	s.HandleFunc("", UserList).Methods("GET", "OPTIONS")
 	s.HandleFunc("/", UserCreate).Methods("POST", "OPTIONS")
-	// s.Use(log, Auth)
+	s.Use(Auth)
 
 	// Tasks
 	s = r.PathPrefix("/tasks").Subrouter()
-	s.Use(Auth)
 	s.HandleFunc("", TaskList).Methods("GET", "OPTIONS")
-	s.HandleFunc("/{taskId}", TaskCreate).Methods("POST", "OPTIONS")
+	s.HandleFunc("", TaskList).Methods("POST", "OPTIONS")
+	s.HandleFunc("/{taskId}", TaskUpdate).Methods("PUT", "OPTIONS")
+	s.HandleFunc("/{taskId}", TaskDelete).Methods("DELETE", "OPTIONS")
+	s.Use(Auth)
 
 	log.Fatal(http.ListenAndServe("localhost:8000", r))
 

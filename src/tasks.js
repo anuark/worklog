@@ -21,8 +21,8 @@ export const TaskEdit = (props) => (
     <Edit title={<TaskTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            <TextInput source="description" />
             <DisabledInput source="created" />
+            <TextInput source="task.description" />
         </SimpleForm>
     </Edit>
 );
@@ -30,8 +30,7 @@ export const TaskEdit = (props) => (
 export const TaskCreate = (props) => (
     <Create title="Create a Task" {...props}>
         <SimpleForm>
-            <TextInput source="description" />
-            <DisabledInput source="created" />
+            <TextInput source="task.description" />
         </SimpleForm>
     </Create>
 );
