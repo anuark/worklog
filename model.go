@@ -8,25 +8,16 @@ import (
 
 // ModelInterface .
 type ModelInterface interface {
-	Get()
-	GetAll()
 	Save()
 	Delete()
+	Load()
 }
 
 // Model .
 type Model struct {
-	Key  *datastore.Key `datastore:"__key__" json:"key"`
-	Kind string         `datastore:"-"`
-}
-
-// Get .
-func (m Model) Get(keyID int64, model interface{}) {
-	k := datastore.IDKey(m.Kind, keyID, nil)
-	fmt.Println(m.Kind, keyID)
-	if err := dsClient.Get(dsCtx, k, model); err != nil {
-		fmt.Println(err)
-	}
+	Key  *datastore.Key `datastore:"__key__" json:"-"`
+	ID   int64          `datastore:"-" json:"id"`
+	Kind string         `datastore:"-" json:"-"`
 }
 
 // Save .
@@ -38,9 +29,12 @@ func (m *Model) Save(model interface{}) {
 		k = m.Key
 	}
 
-	if _, err := dsClient.Put(dsCtx, k, model); err != nil {
+	k, err := dsClient.Put(dsCtx, k, model)
+	if err != nil {
 		fmt.Println(err)
 	}
+
+	m.ID = k.ID
 }
 
 // Delete .
@@ -48,4 +42,16 @@ func (m *Model) Delete() {
 	if err := dsClient.Delete(dsCtx, m.Key); err != nil {
 		fmt.Println(err)
 	}
+}
+
+// Load .
+func (m *Model) Load(ps []datastore.Property) error {
+	// Load I as usual.
+	return datastore.LoadStruct(m, ps)
+}
+
+// SaveProps .
+func (m *Model) SaveProps(ps []datastore.Property) ([]datastore.Property, error) {
+	// Load I as usual.
+	return datastore.SaveStruct(m)
 }

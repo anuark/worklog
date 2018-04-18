@@ -44,7 +44,7 @@ func TaskList(w http.ResponseWriter, r *http.Request) {
 	var tasks []Task
 	for t := dsClient.Run(r.Context(), q); ; {
 		var task Task
-		_, err := t.Next(&task)
+		k, err := t.Next(&task)
 		if err == iterator.Done {
 			break
 		}
@@ -52,6 +52,7 @@ func TaskList(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 			break
 		}
+		task.ID = k.ID
 
 		tasks = append(tasks, task)
 	}
@@ -73,19 +74,20 @@ func TaskList(w http.ResponseWriter, r *http.Request) {
 
 // TaskCreate action for new task.
 func TaskCreate(w http.ResponseWriter, r *http.Request) {
-	r.ParseMultipartForm(1024)
 	task := NewTask()
-
-	var t Task
-	err := decorder.Decode(&t)
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&task)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	if len(val) > 1 {
-		task.Description = r.PostFormValue("desc")
-		task.Save(task)
+	task.Save(task)
+	json, err := json.Marshal(task)
+	if err != nil {
+		fmt.Println(err)
 	}
+
+	fmt.Fprintln(w, string(json))
 }
 
 // TaskUpdate .
@@ -94,10 +96,23 @@ func TaskUpdate(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(vars["taskId"])
 	t, err := findTask(int64(id), w)
 	if err != nil {
-		return
+		fmt.Println(err)
 	}
-	fmt.Println(t)
-	fmt.Fprintf(w, "{\"message\": \"success\"}")
+
+	decoder := json.NewDecoder(r.Body)
+	err = decoder.Decode(t)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	json, err := json.Marshal(t)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	t.Save(t)
+
+	fmt.Fprintln(w, string(json))
 }
 
 // TaskDelete .
@@ -106,14 +121,37 @@ func TaskDelete(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(vars["taskId"])
 	t, err := findTask(int64(id), w)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 	t.Delete()
 }
 
+// TaskView .
+func TaskView(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, _ := strconv.Atoi(vars["taskId"])
+	t, err := findTask(int64(id), w)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(t)
+
+	json, err := json.Marshal(t)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Fprintln(w, string(json))
+}
+
 func findTask(id int64, w http.ResponseWriter) (*Task, error) {
 	t := NewTask()
-	t.Get(id, t)
+	k := datastore.IDKey(t.Kind, id, nil)
+	if err := dsClient.Get(dsCtx, k, t); err != nil {
+		fmt.Println(err)
+	}
+	t.ID = id
+
 	var err error
 	if t.Key == nil {
 		http.Error(w, "No task with id: "+string(id), http.StatusNotFound)

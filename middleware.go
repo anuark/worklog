@@ -97,7 +97,7 @@ func Cors(next http.Handler) http.Handler {
 
 		w.Header().Add("Access-Control-Expose-Headers", "X-Total-Count")
 		if r.Method == "OPTIONS" {
-			w.Header().Add("Access-Control-Allow-Methods", "POST, DELETE, PATCH")
+			w.Header().Add("Access-Control-Allow-Methods", "POST, DELETE, PUT, PATCH")
 			w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
 			return
 		}

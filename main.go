@@ -229,7 +229,8 @@ func main() {
 	// Tasks
 	s = r.PathPrefix("/tasks").Subrouter()
 	s.HandleFunc("", TaskList).Methods("GET", "OPTIONS")
-	s.HandleFunc("", TaskList).Methods("POST", "OPTIONS")
+	s.HandleFunc("", TaskCreate).Methods("POST", "OPTIONS")
+	s.HandleFunc("/{taskId}", TaskView).Methods("GET", "OPTIONS")
 	s.HandleFunc("/{taskId}", TaskUpdate).Methods("PUT", "OPTIONS")
 	s.HandleFunc("/{taskId}", TaskDelete).Methods("DELETE", "OPTIONS")
 	s.Use(Auth)

@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"time"
 
@@ -38,17 +37,13 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	q := datastore.NewQuery("User").Filter("email =", t.Email)
-	users := make([]User, 0)
-	if _, err := dsClient.GetAll(dsCtx, q, &users); err != nil {
-		log.Fatal(err)
+	user := NewUser()
+	for t := dsClient.Run(r.Context(), q); ; {
+		t.Next(user)
+		break
 	}
 
-	if len(users) > 0 {
-		if err := bcrypt.CompareHashAndPassword([]byte(users[0].Password), []byte(t.Password)); err != nil {
-			http.Error(w, fmt.Sprintf("%s", err), http.StatusBadRequest)
-			return
-		}
-	} else {
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(t.Password)); err != nil {
 		http.Error(w, "Username or password is invalid.", http.StatusBadRequest)
 		return
 	}
@@ -56,8 +51,8 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	h := md4.New()
 	io.WriteString(h, time.Now().String())
 	hash := h.Sum(nil)
-	users[0].AuthKey = fmt.Sprintf("%x", hash)
-	users[0].Save()
+	user.AuthKey = fmt.Sprintf("%x", hash)
+	user.Save(user)
 
-	fmt.Fprint(w, "{\"token\": \""+users[0].AuthKey+"\"}")
+	fmt.Fprint(w, "{\"token\": \""+user.AuthKey+"\"}")
 }
