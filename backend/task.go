@@ -8,7 +8,6 @@ import (
 type Task struct {
 	Description string    `datastore:"description" json:"description"`
 	Created     time.Time `datastore:"created" json:"created"`
-	userID      int64
 
 	Model
 }

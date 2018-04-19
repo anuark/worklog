@@ -36,21 +36,26 @@ func TaskList(w http.ResponseWriter, r *http.Request) {
 		orderStr = ""
 	}
 
+	_ = orderStr
+	_ = limit
+	_ = offset
+
+	user, _ := UserFromContext(r.Context())
 	q := datastore.NewQuery("Task").
+		Ancestor(user.Key).
 		Order(orderStr).
 		Limit(limit).
 		Offset(offset)
 
 	var tasks []Task
 	for t := dsClient.Run(r.Context(), q); ; {
-		var task Task
+		task := Task{}
 		k, err := t.Next(&task)
 		if err == iterator.Done {
 			break
 		}
 		if err != nil {
-			fmt.Println(err)
-			break
+			panic(err)
 		}
 		task.ID = k.ID
 
@@ -78,16 +83,16 @@ func TaskCreate(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&task)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	user, _ := UserFromContext(r.Context())
-	fmt.Println(user)
+	task.AncestorKey = user.Key
 
 	task.Save(task)
 	json, err := json.Marshal(task)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	fmt.Fprintln(w, string(json))
@@ -97,20 +102,20 @@ func TaskCreate(w http.ResponseWriter, r *http.Request) {
 func TaskUpdate(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["taskId"])
-	t, err := findTask(int64(id), w)
+	t, err := findTask(int64(id), w, r)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	decoder := json.NewDecoder(r.Body)
 	err = decoder.Decode(t)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	json, err := json.Marshal(t)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 
 	t.Save(t)
@@ -122,9 +127,9 @@ func TaskUpdate(w http.ResponseWriter, r *http.Request) {
 func TaskDelete(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["taskId"])
-	t, err := findTask(int64(id), w)
+	t, err := findTask(int64(id), w, r)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 	t.Delete()
 }
@@ -133,11 +138,10 @@ func TaskDelete(w http.ResponseWriter, r *http.Request) {
 func TaskView(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["taskId"])
-	t, err := findTask(int64(id), w)
+	t, err := findTask(int64(id), w, r)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
-	fmt.Println(t)
 
 	json, err := json.Marshal(t)
 	if err != nil {
@@ -147,11 +151,12 @@ func TaskView(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, string(json))
 }
 
-func findTask(id int64, w http.ResponseWriter) (*Task, error) {
+func findTask(id int64, w http.ResponseWriter, r *http.Request) (*Task, error) {
 	t := NewTask()
-	k := datastore.IDKey(t.Kind, id, nil)
+	u, _ := UserFromContext(r.Context())
+	k := datastore.IDKey(t.Kind, id, u.Key)
 	if err := dsClient.Get(dsCtx, k, t); err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 	t.ID = id
 

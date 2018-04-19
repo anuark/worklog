@@ -15,16 +15,17 @@ type ModelInterface interface {
 
 // Model .
 type Model struct {
-	Key  *datastore.Key `datastore:"__key__" json:"-"`
-	ID   int64          `datastore:"-" json:"id"`
-	Kind string         `datastore:"-" json:"-"`
+	Key         *datastore.Key `datastore:"__key__" json:"-"`
+	AncestorKey *datastore.Key `datastore:"-" json:"-"`
+	ID          int64          `datastore:"-" json:"id"`
+	Kind        string         `datastore:"-" json:"-"`
 }
 
 // Save .
 func (m *Model) Save(model interface{}) {
 	var k *datastore.Key
 	if m.Key == nil {
-		k = datastore.IncompleteKey(m.Kind, nil)
+		k = datastore.IncompleteKey(m.Kind, m.AncestorKey)
 	} else {
 		k = m.Key
 	}

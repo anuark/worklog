@@ -213,7 +213,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
-	r.Use(Log, Cors, JSONContentType)
+	r.Use(Cors, JSONContentType, Auth, Log)
 
 	// Site
 	r.HandleFunc("/", Index).Methods("GET")
@@ -223,7 +223,6 @@ func main() {
 	s := r.PathPrefix("/users").Subrouter()
 	s.HandleFunc("", UserList).Methods("GET", "OPTIONS")
 	s.HandleFunc("/", UserCreate).Methods("POST", "OPTIONS")
-	s.Use(Auth)
 
 	// Tasks
 	s = r.PathPrefix("/tasks").Subrouter()
@@ -232,7 +231,6 @@ func main() {
 	s.HandleFunc("/{taskId}", TaskView).Methods("GET", "OPTIONS")
 	s.HandleFunc("/{taskId}", TaskUpdate).Methods("PUT", "OPTIONS")
 	s.HandleFunc("/{taskId}", TaskDelete).Methods("DELETE", "OPTIONS")
-	s.Use(Auth)
 
 	log.Fatal(http.ListenAndServe("localhost:8000", r))
 
