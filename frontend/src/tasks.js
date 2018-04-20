@@ -1,10 +1,12 @@
 import React from 'react';
 import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, DisabledInput, TextInput, /*LongTextInput, DateInput*/ } from 'admin-on-rest';
 import BookIcon from 'material-ui/svg-icons/action/book';
+import TaskListActions from './TaskListActions';
+
 export const TaskIcon = BookIcon;
 
 export const TaskList = (props) => (
-    <List {...props} sort={{field: "created", order: "DESC"}}>
+    <List {...props} sort={{field: "created", order: "DESC"}} actions={<TaskListActions />}>
         <Datagrid>
             <TextField source="description" />
             <DateField source="created" />

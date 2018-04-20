@@ -10,3 +10,14 @@ indexes:
   properties:
   - name: created
     direction: desc
+
+- kind: Task
+  ancestor: yes
+  properties:
+  - name: description
+
+- kind: Task
+  ancestor: yes
+  properties:
+  - name: description
+    direction: desc

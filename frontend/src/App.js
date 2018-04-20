@@ -20,7 +20,7 @@ const httpClient = (url, options = {}) => {
 const restClient = jsonServerRestClient('http://localhost:8000', httpClient);
 
 const App = () => (
-    <Admin loginPage={MyLogin} /*logoutButton={MyLogoutButton}*/ authClient={authClient} restClient={restClient} title="Worklok Dashboard">
+    <Admin loginPage={MyLogin} /*logoutButton={MyLogoutButton}*/ authClient={authClient} restClient={restClient} title="Worklog Dashboard">
         <Resource name="tasks" list={TaskList} edit={TaskEdit} create={TaskCreate} icon={TaskIcon}/>
     </Admin>
 );
