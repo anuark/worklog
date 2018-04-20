@@ -11,7 +11,7 @@ const cardActionStyle = {
 
 const TaskListActions = ({ basePath, data }) => (
     <CardActions style={cardActionStyle}>
-        <GenerateButton record={data} />
+        <GenerateButton basePath={basePath} record={data} />
         <CreateButton basePath={basePath} />
         <RefreshButton />
     </CardActions>
