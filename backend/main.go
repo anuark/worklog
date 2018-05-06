@@ -36,7 +36,7 @@ func main() {
 		}
 		_ = dateRange
 
-		// generatePdf(dateRange)
+		GeneratePdf(dateRange)
 	} else {
 		r := mux.NewRouter()
 		r.Use(Cors, JSONContentType, Auth, Log)
@@ -57,6 +57,12 @@ func main() {
 		s.HandleFunc("/{taskId}", TaskView).Methods("GET", "OPTIONS")
 		s.HandleFunc("/{taskId}", TaskUpdate).Methods("PUT", "OPTIONS")
 		s.HandleFunc("/{taskId}", TaskDelete).Methods("DELETE", "OPTIONS")
+
+		// Invoice
+		s = r.PathPrefix("/invoices").Subrouter()
+		s.HandleFunc("", InvoiceList).Methods("GET", "OPTIONS")
+		s.HandleFunc("", InvoiceCreate).Methods("POST", "OPTIONS")
+		s.HandleFunc("/{invoiceId}", InvoiceDelete).Methods("DELETE", "OPTIONS")
 
 		log.Fatal(http.ListenAndServe("localhost:8000", r))
 	}
