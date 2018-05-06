@@ -5,34 +5,28 @@ import (
 	"strings"
 )
 
-func main() {
-	str := "Murcielago venenoso maton peligroso mata caballo patas de cabro"
-	a := wordWrap(str, 22)
-	// fmt.Printf("%#v", a)
-	fmt.Println(a)
-}
-
-var wordSize = 1
-
-func wordWrap(input string, size int) string {
+func wordWrap(input string, size int) (text string, rows int) {
 	sep := strings.Split(input, " ")
 
 	var strLen int
-	addSpace := true
+	rows = 1
 	for i, v := range sep {
-		if addSpace {
-			sep[i] += " "
-		}
-
-		addSpace = true
 
 		strLen += len(v) * wordSize
 		if strLen > size && i != 0 {
 			sep[i-1] = sep[i-1] + "\n"
 			strLen = len(v) * wordSize
-			addSpace = false
+			rows++
 		}
+
+		sep[i] += " "
 	}
 
-	return strings.Join(sep, "")
+	text = strings.Join(sep, "")
+	return
+}
+
+func main() {
+	str := "Murcielago venenoso maton peligroso mata caballo patas de cabro"
+	fmt.Println(wordWrap(str, 22))
 }

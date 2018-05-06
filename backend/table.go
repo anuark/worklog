@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"math"
 
 	"github.com/pkg/errors"
 )
@@ -12,6 +12,7 @@ type Table struct {
 	CurrentLine     int
 	Columns         [][]Column
 	TextAlignment   string
+	LineHeight      float64
 }
 
 // NewTable create new Table.
@@ -19,9 +20,10 @@ func NewTable(x, y float64, columns []Column) *Table {
 	cols := make([][]Column, 0)
 	cols = append(cols, columns)
 	table := &Table{
-		X:       x,
-		Y:       y,
-		Columns: cols,
+		X:          x,
+		Y:          y,
+		Columns:    cols,
+		LineHeight: 5.5,
 	}
 
 	table.printRow(columns)
@@ -37,8 +39,11 @@ func (t *Table) AddRow(content []string) error {
 	}
 
 	columns := make([]Column, 0)
+	maxHeight := 0.0
 	for i, col := range t.Columns[len(t.Columns)-1] {
-		columns = append(columns, Column{Content: content[i], Width: col.Width, Height: col.Height})
+		lines := pdf.SplitLines([]byte(content[i]), col.Width)
+		maxHeight = math.Max(float64(len(lines))*t.LineHeight+col.Height, maxHeight)
+		columns = append(columns, Column{Content: content[i], Width: col.Width, Height: maxHeight})
 	}
 
 	t.Columns = append(t.Columns, columns)
@@ -57,15 +62,30 @@ func (t *Table) printRow(columns []Column) {
 		// fmt.Println("")
 
 		// Add Bold to header's font.
+		alignStr := "L"
+		cellYSpacing := 0.0
+		cellYCentering := 0.0
 		if t.CurrentLine == 0 {
 			pdf.SetFont("Arial", "B", 12)
 		} else {
+			alignStr = "L"
 			pdf.SetFont("Arial", "", 12)
+			cellYSpacing = 1.1
+			cellYCentering = t.LineHeight
 		}
 
-		calcDimensions(col)
-
-		pdf.CellFormat(col.Width, col.Height, col.Content, "", 0, "L", false, 0, "")
+		lines := pdf.SplitLines([]byte(col.Content), col.Width)
+		pdf.SetXY(nextX, t.Y+t.relHeight+cellYSpacing)
+		if len(lines) > 1 {
+			nextCellH := 0.0
+			for _, v := range lines {
+				pdf.SetXY(nextX, t.Y+t.relHeight+nextCellH+cellYSpacing)
+				pdf.CellFormat(col.Width, col.Height-cellYCentering, string(v), "", 0, alignStr, false, 0, "")
+				nextCellH += t.LineHeight
+			}
+		} else {
+			pdf.CellFormat(col.Width, col.Height-cellYCentering, col.Content, "", 0, alignStr, false, 0, "")
+		}
 
 		// if i == 0 {
 		// 	break
@@ -78,16 +98,6 @@ func (t *Table) printRow(columns []Column) {
 	pdf.Ln(10)
 	t.relHeight = lastHeight * float64(len(t.Columns))
 	t.CurrentLine++
-}
-
-const letterWidth = 1
-const descriptionWidth = 60
-
-func calcDimensions(col Column) {
-	totalLength := len(col.Content) * letterWidth
-	if totalLength > descriptionWidth {
-		fmt.Println("greater")
-	}
 }
 
 // Column of Table.

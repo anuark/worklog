@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"strings"
 	"time"
 
 	"cloud.google.com/go/datastore"
@@ -12,13 +13,17 @@ import (
 
 var pdf *gofpdf.Fpdf
 
-func generatePdf(inputDate time.Time) {
+// GeneratePdf .
+//
+// Related: convert pdf to jpg with imagick https://stackoverflow.com/questions/47492837/golang-convert-pdf-to-image-by-bimg
+func GeneratePdf(inputDate time.Time) {
 	pdf = gofpdf.New("P", "mm", "A4", "")
 	pdf.AddPage()
 	pdf.SetFont("Arial", "B", 12)
 	pdf.Cell(100, 10, "Anuar Kilgore")
 	pdf.Ln(10)
 
+	// TODO: make this data dynamic coded.
 	// address, phone and email.
 	pdf.SetFont("Arial", "", 10)
 	pdf.Cell(0, 10, "col. los alamos")
@@ -57,8 +62,10 @@ func generatePdf(inputDate time.Time) {
 	}
 
 	q := datastore.NewQuery("Task").
-		Filter("Created >", inputDate).
-		Order("Created")
+		// Filter("created >", inputDate).
+		Order("created")
+
+	// fmt.Println(inputDate)
 
 	var prevTask Task
 	nextH := 0.0
@@ -120,7 +127,55 @@ func generatePdf(inputDate time.Time) {
 		n++
 	}
 
-	fmt.Println(allTasks)
+	// fmt.Println(allTasks)
 
 	pdf.OutputFileAndClose("hello.pdf")
+}
+
+// WordWrap .
+func WordWrap(input string, size int) (text string, rows int) {
+	// sepByLine := strings.Split(input, "\n")
+	sep := strings.Split(input, " ")
+
+	var strLen int
+	rows = 1
+	for i, v := range sep {
+
+		strLen += len(v)
+		if strLen > size && i != 0 {
+			sep[i-1] = sep[i-1] + "\n"
+			strLen = len(v)
+			rows++
+		}
+
+		sep[i] += " "
+	}
+
+	text = strings.Join(sep, "")
+	return
+}
+
+// PrintWordWrap .
+func PrintWordWrap(input string, size int, cellW, cellH float64) {
+	sep := strings.Split(input, " ")
+	strLen := 0
+	lastI := 0
+	printPos := 0
+	fmt.Println("input:", input)
+	for i, v := range sep {
+		strLen += len(v)
+		if strLen > size && i != 0 {
+			content := strings.Join(sep[printPos:i], " ")
+			printPos = i
+			pdf.CellFormat(cellW, cellH, content, "1", 2, "L", false, 0, "")
+			fmt.Println("printing:", content)
+			strLen = len(v)
+		}
+		lastI = i
+	}
+
+	lastContent := strings.Join(sep[lastI-1:], " ")
+	fmt.Println("last", sep[lastI-1:], lastI-1, len(sep)-1)
+	fmt.Println("printing:", lastContent)
+	pdf.CellFormat(cellW, cellH, lastContent, "", 0, "L", true, 0, "")
 }
