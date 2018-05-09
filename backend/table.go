@@ -56,14 +56,13 @@ func (t *Table) printRow(columns []Column) {
 	lastHeight := 0.0
 	nextX := t.X
 	for _, col := range columns {
-		pdf.Rect(nextX, t.Y+t.relHeight, col.Width, col.Height, "D")
+		// pdf.Rect(nextX, t.Y+t.relHeight, col.Width, col.Height, "D")
 		// fmt.Println(i)
 		// fmt.Println(nextX, relW, col.Width, float64(i))
 		// fmt.Println("")
 
 		// Add Bold to header's font.
 		alignStr := "L"
-		cellYSpacing := 0.0
 		cellYCentering := 0.0
 		if t.CurrentLine == 0 {
 			pdf.SetFont("Arial", "B", 12)
@@ -75,16 +74,16 @@ func (t *Table) printRow(columns []Column) {
 		}
 
 		lines := pdf.SplitLines([]byte(col.Content), col.Width)
-		pdf.SetXY(nextX, t.Y+t.relHeight+cellYSpacing)
+		pdf.SetXY(nextX, t.Y+t.relHeight)
 		if len(lines) > 1 {
 			nextCellH := 0.0
 			for _, v := range lines {
-				pdf.SetXY(nextX, t.Y+t.relHeight+nextCellH+cellYSpacing)
-				pdf.CellFormat(col.Width, col.Height-cellYCentering, string(v), "", 0, alignStr, false, 0, "")
+				pdf.SetXY(nextX, t.Y)
+				pdf.CellFormat(col.Width, col.Height-cellYCentering, string(v), "1", 0, alignStr, false, 0, "")
 				nextCellH += t.LineHeight
 			}
 		} else {
-			pdf.CellFormat(col.Width, col.Height-cellYCentering, col.Content, "", 0, alignStr, false, 0, "")
+			pdf.CellFormat(col.Width, col.Height, col.Content, "1", 0, alignStr, false, 0, "")
 		}
 
 		// if i == 0 {
@@ -96,7 +95,7 @@ func (t *Table) printRow(columns []Column) {
 	}
 
 	pdf.Ln(10)
-	t.relHeight = lastHeight * float64(len(t.Columns))
+	t.relHeight = t.relHeight + lastHeight
 	t.CurrentLine++
 }
 
