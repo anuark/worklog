@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Worklog</title>
+    <link rel="stylesheet" href="template-style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        {{ range $index, $element := .Header }}
+            {{ if eq $index 0}}
+            <h5>{{.}}</h5>
+            {{ else }}
+            <p>{{.}}</p>
+            {{end}}
+        {{end}}
+        <br>
+        {{ range $index, $element := .TasksByWeek }}
+        <!-- <h5>Week 25-29 December of 2017</h5> -->
+        <h5>Week {{ $index }}</h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Day</th>
+                    <th>Hours</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                    <td>{{ .Description }}</td>
+                    <td>{{ .Day }}</td>
+                    <td>{{ .Hours }}</td>
+                    <td>{{ .Rate }}</td>
+                    <td>{{ .Amount }}</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        {{ end }}
+    </div>
+</body>
+</html>

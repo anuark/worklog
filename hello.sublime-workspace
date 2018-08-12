@@ -1,0 +1,1791 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Read",
+				"ReadBytes\t[]byte, error ƒ"
+			],
+			[
+				"candle",
+				"candlesHeightsMap\tmap[int]int ν"
+			],
+			[
+				"cand",
+				"candleHeights\t[]int ν"
+			],
+			[
+				"candleH",
+				"candlesHeightsMap\tmap[int]int ν"
+			],
+			[
+				"std",
+				"Stdin\t*os.File ν"
+			],
+			[
+				"SCENA",
+				"SCENARIO_BUYERS_EDGE_FAIR_PRICING"
+			],
+			[
+				"Orga",
+				"OrganizationTypeRole"
+			],
+			[
+				"organizationTp",
+				"OrganizationType"
+			],
+			[
+				"_orga",
+				"_organizationTypeId"
+			],
+			[
+				"_org",
+				"_organizationTypeId"
+			],
+			[
+				"_organ",
+				"_organizationTypeRoleId"
+			],
+			[
+				"getOrganiza",
+				"getOrganizationTypeId"
+			],
+			[
+				"OrganizationTyp",
+				"OrganizationTypeRole"
+			],
+			[
+				"User",
+				"UserOrganization"
+			],
+			[
+				"Pass",
+				"PasswordResetRequestForm"
+			],
+			[
+				"Organi",
+				"OrganizationType"
+			],
+			[
+				"SCENARIO",
+				"SCENARIO_FAIR_PRICING"
+			],
+			[
+				"SCENARIO_",
+				"SCENARIO_BUYERS_EDGE_FAIR_PRICING"
+			],
+			[
+				"BE",
+				"SCENARIO_BUYERS_EDGE"
+			],
+			[
+				"merchantDis",
+				"merchantDistributorsIterator"
+			],
+			[
+				"merchant_distri",
+				"merchant_distributor_id"
+			],
+			[
+				"Mer",
+				"Merchant"
+			],
+			[
+				"Merchant",
+				"MerchantDistributorSearch"
+			],
+			[
+				"MerchantDis",
+				"MerchantDistributorEmail"
+			],
+			[
+				"merchantDi",
+				"merchantDistributorEmails"
+			],
+			[
+				"merchan",
+				"merchantDistributorsIterator"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "hello.go",
+			"settings":
+			{
+				"buffer_size": 2838,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Go/src/bufio/scan.go",
+			"settings":
+			{
+				"buffer_size": 13463,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "data",
+			"settings":
+			{
+				"buffer_size": 53,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 343.0,
+		"last_filter": "browse",
+		"selected_items":
+		[
+			[
+				"browse",
+				"GoSublime: Browse Declarations"
+			],
+			[
+				"goto",
+				"GoSublime: Goto Definition"
+			],
+			[
+				"gosubl",
+				"GoSublime: Goto Definition"
+			],
+			[
+				"brow",
+				"GoSublime: Browse Declarations"
+			],
+			[
+				"brows",
+				"GoSublime: Browse Declarations"
+			],
+			[
+				"gosu",
+				"GoSublime: Browse Packages"
+			],
+			[
+				"gosub",
+				"GoSublime: Browse Packages"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"snippet ",
+				"Snippet: Struct"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Struct"
+			],
+			[
+				"gosubl def",
+				"GoSublime: Goto Definition"
+			],
+			[
+				"bro",
+				"GoSublime: Browse Packages"
+			],
+			[
+				"gosub l",
+				"GoSublime: Browse Declarations"
+			],
+			[
+				"settin",
+				"Preferences: Settings"
+			],
+			[
+				"vintageous",
+				"Vintageous: Open .vintageousrc"
+			],
+			[
+				"save ",
+				"Project: Save As"
+			],
+			[
+				"clos",
+				"Project: Close"
+			],
+			[
+				"ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"bla",
+				"Git: Blame"
+			],
+			[
+				"closa",
+				"File: Close All"
+			],
+			[
+				"clsoa",
+				"File: Close All"
+			],
+			[
+				"toggle side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"sideb",
+				"View: Toggle Side Bar"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"cl",
+				"Project: Close"
+			],
+			[
+				"b",
+				"Git: Blame"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"batch",
+				"Set Syntax: Batch File"
+			],
+			[
+				"projec",
+				"Project: Close"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			]
+		],
+		"width": 510.0
+	},
+	"console":
+	{
+		"height": 358.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Anuar/code/go/src/hello"
+	],
+	"file_history":
+	[
+		"/C/Go/src/fmt/print.go",
+		"/C/Go/src/bufio/bufio.go",
+		"/C/Go/src/bufio/scan.go",
+		"/C/Users/Anuar/code/go/src/hello/data2",
+		"/C/Users/Anuar/code/go/src/hello/data",
+		"/C/Users/Anuar/code/go/src/hello/hello.go",
+		"/C/Go/src/os/file.go",
+		"/C/Users/Anuar/code/go/src/hello/challenges/mini-max-sum/data",
+		"/C/Users/Anuar/code/go/src/hello/challenges/plus-minus/main.go",
+		"/C/Users/Anuar/code/go/src/hello/challenges/plus-minus/data",
+		"/C/Users/Anuar/AppData/Roaming/Sublime Text 3/Packages/User/iferr.sublime-snippet",
+		"/C/Go/src/builtin/builtin.go",
+		"/C/Go/src/strings/strings.go",
+		"/C/Go/src/bufio/scan_test.go",
+		"/C/Users/Anuar/code/go/src/hello/present.go",
+		"/C/Users/Anuar/AppData/Roaming/Sublime Text 3/Packages/User/.vintageousrc",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/runtime/logs/app.log",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/controllers/UserController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/acceptance/OrderCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/order/adjustment.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/models/OrderGuide.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/acceptance.suite.yml",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/Order.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/config/main-local.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/acceptance/SiteCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/README.md",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional/OrderControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_output/backend.tests.SiteControllerCest.login.fail.html",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_support/AcceptanceTester.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_output/backend.tests.OrderCest.index.fail.html",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/codeception/codeception/docs/modules/Yii2.md",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_support/_generated/AcceptanceTesterActions.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/dropbox/dropbox-sdk/ReadMe.md",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/waije/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/pedro/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/grievous/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/staging/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/dev/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/tests/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_output/failed",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/pericoazul/backend/web/index-test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/ItemSearchtagController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/codeception/codeception/src/Codeception/Lib/Connector/Yii2.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/config/main.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/api/UserControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/OrderController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/ItemDistributorSearch.php",
+		"/C/Users/Anuar/code/php/foodbambackend/test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/controllers/OrderGuideController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/OrderItemSearch.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/pericoazul/common/config/main-local.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/layouts/header.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/yiisoft/yii2/caching/Cache.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/modules/global_import/controllers/InventoryController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/modules/global_import/models/OrderGuideForm.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/controllers/OrderController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/config/test-local.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional/UserControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/ChangeRoleForm.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/controllers/TestController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/api/CartControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/base/DistributorController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/DistributorController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/yiisoft/yii2-swiftmailer/Message.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/controllers/DataExportController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/config/bootstrap.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/runtime/logs/app.log",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/unit/OrderCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/Merchant.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/controllers/CartController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Message.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/migrations/m170904_191142_user_admin.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/behaviors/ProfilingBehavior.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/UserController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/_form.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/OrganizationController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/_userdata.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/User.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/yiisoft/yii2/base/Component.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/User.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional/DistributorControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/tests/common/config/main-local.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/config/test.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/_form2.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/change-role.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/MerchantDistributorController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/MerchantController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/distributor/index.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/distributor/partial/_form.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/traits/FindModelTrait.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/Distributor.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/distributor-private-label/_form.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/distributor/create.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/api/OrderGuideControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/.gitattributes",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/tests/yii",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/tests/backend/web/index.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/tests/api/web/index.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/_data/be_test_order_guide.csv",
+		"/C/Users/Anuar/code/php/foodbambackend/api/tests/_support/ApiTester.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/OrderGuideController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/models/Order.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/order/adjustment-history.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/order/_item.php",
+		"/C/Users/Anuar/code/php/foodbambackend/console/controllers/DataLoadController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/prod/common/config/main-local.php",
+		"/C/Users/Anuar/code/php/foodbambackend/vendor/nickcv/yii2-mandrill/src/Mailer.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/controllers/ItemDistributorController.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/OrderItem.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/OrderItem.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/update.php",
+		"/C/Users/Anuar/code/php/foodbambackend/environments/prod/common/config/params-local.php",
+		"/C/Users/Anuar/Downloads/20170831-115220-7497-6214.eml",
+		"/C/Users/Anuar/Downloads/20170831-155220-2630-1861.eml",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional.suite.yml",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/user/create.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/UserLocationAuth.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/UserLocationAuth.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/_output/backend.tests.UserControllerCest.create.fail.html",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/views/layouts/main.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/config/params.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional/ItemControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/tests/functional/MerchantControllerCest.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/components/Notification.php",
+		"/C/Users/Anuar/code/php/foodbambackend/api/modules/v1/models/OrderItem.php",
+		"/C/Users/Anuar/code/php/foodbambackend/backend/models/Merchant.php",
+		"/C/Users/Anuar/code/php/foodbambackend/common/models/Address.php"
+	],
+	"find":
+	{
+		"height": 49.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"nCities",
+			"NewReaderSize",
+			"kitchenFormat",
+			"buffer",
+			"input",
+			"height",
+			"allSums",
+			"allNums",
+			"num",
+			"size",
+			"float64",
+			"os.File",
+			"Reader",
+			"strings",
+			"os",
+			"values",
+			"allValues",
+			"value",
+			"Printf",
+			"numbers",
+			"updated",
+			"part",
+			"itemDistributor",
+			"is_catch_weight",
+			"dsrEmailsCount",
+			"connect_id",
+			"order",
+			"merchDistEmails",
+			"emails",
+			"id",
+			"orgTypeRole",
+			"UserOrganization",
+			"OrganizationTypeRole",
+			"JsExpression",
+			" {",
+			"post",
+			"loadedAndSaved",
+			"UserForm",
+			"userform",
+			"getFields",
+			"modelLoadSave",
+			"userOrganization",
+			"set_password",
+			"admin_user_id",
+			"organization_name",
+			"user_role",
+			"uploadToS3",
+			"count",
+			"_distribtuodr",
+			"customerEmail",
+			"order@foodbam.com",
+			"order-staging@foodbam.com",
+			"organization",
+			"this->organization",
+			"itemDistributor",
+			"manufacturer",
+			"Item",
+			"item",
+			"Item",
+			"item",
+			"Item",
+			"itemDistributor",
+			"itemDist",
+			"update-item",
+			"actionUpdateItem",
+			"item",
+			"organizationId",
+			"userDataSet",
+			"sendFoodbamEmail",
+			"emailUserVerify",
+			"verifyEmail",
+			"emailUserVerify",
+			"userUpdateDataSet",
+			"organizationTypes",
+			"allTypesArray",
+			"user",
+			"Html",
+			"Url",
+			"url",
+			"Url",
+			"url",
+			"Url",
+			"ArrayHelper",
+			"ActiveForm",
+			"FileInput",
+			"OrganizationTypeRole",
+			"OrganizationType",
+			"Organization",
+			"organization",
+			"Organization",
+			"UserLocationAuth",
+			"orgId",
+			"queryString",
+			"words",
+			"queryString",
+			"words",
+			"userUpdateDataSet",
+			"orgId",
+			"queryString",
+			"data",
+			"queryString",
+			"organizationId",
+			"organizationTypeId",
+			"OrganizationTypeId",
+			"findUserOrganization",
+			"organizationTypeROleId",
+			"getOrganizationTypeRoleId",
+			"findUserOrganization",
+			"organization_name",
+			"_organizationTypeRole",
+			"saveUserOrg",
+			"handleUserReferences",
+			"addLocationAuth",
+			"getOrganizationTypeRole",
+			"getRoleName",
+			"saveRole",
+			"saveUserOrganization",
+			"organizationTypeRole",
+			"last_organization_type",
+			"password",
+			"verifySendPassword",
+			"fullname",
+			"foodbam_base_url",
+			"verifySendPassword",
+			"simpleData",
+			"userDataSet",
+			"user_role",
+			"organization_type_role_id"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "hello.go",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2838,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1552,
+										1553
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										694,
+										695
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										835,
+										836
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										824,
+										825
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"highlight_line": false,
+							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_non_interactive": false,
+								"_vintageous_processing_notation": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Go/src/bufio/scan.go",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4143,
+								4143
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4143,
+										4144
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										4125,
+										4126
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 970.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "data",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 53,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52,
+								52
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 2
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 48.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.GoSublime-main-output":
+	{
+		"height": 100.0
+	},
+	"output.GsDoc-output-output":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "hello.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"da",
+				"data"
+			],
+			[
+				"hello",
+				"hello.go"
+			],
+			[
+				"dat",
+				"data"
+			],
+			[
+				"cha",
+				"challenges\\plus-minus\\main.go"
+			],
+			[
+				"prese",
+				"present.go"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"hel",
+				"hello.go"
+			],
+			[
+				"cons/conf/main-",
+				"environments\\prod\\console\\config\\main-local.php"
+			],
+			[
+				"com/model/order",
+				"common\\models\\Order.php"
+			],
+			[
+				"back/app.lo",
+				"backend\\runtime\\logs\\app.log"
+			],
+			[
+				"back/app.l",
+				"backend\\runtime\\logs\\app.log"
+			],
+			[
+				"com/main-lo",
+				"common\\config\\main-local.php"
+			],
+			[
+				"order/adjust",
+				"backend\\views\\order\\adjustment.php"
+			],
+			[
+				"api/orderguide",
+				"api\\modules\\v1\\models\\OrderGuide.php"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"readme",
+				"vendor\\dropbox\\dropbox-sdk\\ReadMe.md"
+			],
+			[
+				"waije/back/index-te",
+				"environments\\waije\\backend\\web\\index-test.php"
+			],
+			[
+				"pedro/back/index-te",
+				"environments\\pedro\\backend\\web\\index-test.php"
+			],
+			[
+				"griev/back/inde-",
+				"environments\\grievous\\backend\\web\\index-test.php"
+			],
+			[
+				"stag/back/index-",
+				"environments\\staging\\backend\\web\\index-test.php"
+			],
+			[
+				"env/dev/back/index-",
+				"environments\\dev\\backend\\web\\index-test.php"
+			],
+			[
+				"env/test/back/",
+				"environments\\tests\\backend\\web\\index-test.php"
+			],
+			[
+				"back/index-test",
+				"backend\\web\\index-test.php"
+			],
+			[
+				"env/perico/back/index-te",
+				"environments\\pericoazul\\backend\\web\\index-test.php"
+			],
+			[
+				"cont/itemsearchtag",
+				"backend\\controllers\\ItemSearchtagController.php"
+			],
+			[
+				"codecept/conn/yii2",
+				"vendor\\codeception\\codeception\\src\\Codeception\\Lib\\Connector\\Yii2.php"
+			],
+			[
+				"api/conf/main.",
+				"api\\config\\main.php"
+			],
+			[
+				"api/usercon",
+				"api\\modules\\v1\\controllers\\UserController.php"
+			],
+			[
+				"api/usercont",
+				"api\\tests\\api\\UserControllerCest.php"
+			],
+			[
+				"accept/orderces",
+				"backend\\tests\\acceptance\\OrderCest.php"
+			],
+			[
+				"codeception/yii2",
+				"vendor\\codeception\\codeception\\docs\\modules\\Yii2.md"
+			],
+			[
+				"connect/yii2",
+				"vendor\\codeception\\codeception\\src\\Codeception\\Lib\\Connector\\Yii2.php"
+			],
+			[
+				"funct/ordercon",
+				"backend\\tests\\functional\\OrderControllerCest.php"
+			],
+			[
+				"itemdistsearch",
+				"backend\\models\\ItemDistributorSearch.php"
+			],
+			[
+				"back/ordercon",
+				"backend\\controllers\\OrderController.php"
+			],
+			[
+				"orderitemsea",
+				"backend\\models\\OrderItemSearch.php"
+			],
+			[
+				"comm/main",
+				"common\\config\\main-local.php"
+			],
+			[
+				"env/peric/comm/mai",
+				"environments\\pericoazul\\common\\config\\main-local.php"
+			],
+			[
+				"inventoycon",
+				"backend\\modules\\global_import\\controllers\\InventoryController.php"
+			],
+			[
+				"glob/orderguide",
+				"backend\\modules\\global_import\\models\\OrderGuideForm.php"
+			],
+			[
+				"test.",
+				"test.php"
+			],
+			[
+				"api/orderguidecont",
+				"api\\modules\\v1\\controllers\\OrderGuideController.php"
+			],
+			[
+				"yii/caching",
+				"vendor\\yiisoft\\yii2\\caching\\Cache.php"
+			],
+			[
+				"api/mod/orderguide",
+				"api\\modules\\v1\\models\\OrderGuide.php"
+			],
+			[
+				"cons/ordercon",
+				"console\\controllers\\OrderController.php"
+			],
+			[
+				"layout/he",
+				"backend\\views\\layouts\\header.php"
+			],
+			[
+				"comm/test-lo",
+				"common\\config\\test-local.php"
+			],
+			[
+				"cartcontrollerces",
+				"api\\tests\\api\\CartControllerCest.php"
+			],
+			[
+				"cartcontroller",
+				"api\\modules\\v1\\controllers\\CartController.php"
+			],
+			[
+				"glob/orderguidefor",
+				"backend\\modules\\global_import\\models\\OrderGuideForm.php"
+			],
+			[
+				"back/cont/distcon",
+				"backend\\controllers\\DistributorController.php"
+			],
+			[
+				"base/",
+				"backend\\controllers\\base\\DistributorController.php"
+			],
+			[
+				"orderguideform",
+				"backend\\modules\\global_import\\models\\OrderGuideForm.php"
+			],
+			[
+				"api/model/orderguide",
+				"api\\modules\\v1\\models\\OrderGuide.php"
+			],
+			[
+				"orderces",
+				"api\\tests\\unit\\OrderCest.php"
+			],
+			[
+				"yii/message",
+				"vendor\\yiisoft\\yii2-swiftmailer\\Message.php"
+			],
+			[
+				"swift/messa",
+				"vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Message.php"
+			],
+			[
+				"dataexpo",
+				"console\\controllers\\DataExportController.php"
+			],
+			[
+				"com/boot",
+				"common\\config\\bootstrap.php"
+			],
+			[
+				"cons/app.lo",
+				"console\\runtime\\logs\\app.log"
+			],
+			[
+				"cons/ordercont",
+				"console\\controllers\\OrderController.php"
+			],
+			[
+				"ordercest",
+				"api\\tests\\unit\\OrderCest.php"
+			],
+			[
+				"com/model/merch",
+				"common\\models\\Merchant.php"
+			],
+			[
+				"comm/test-",
+				"common\\config\\test-local.php"
+			],
+			[
+				"profil",
+				"common\\behaviors\\ProfilingBehavior.php"
+			],
+			[
+				"testcon",
+				"console\\controllers\\TestController.php"
+			],
+			[
+				"mig/user_admin",
+				"console\\migrations\\m170904_191142_user_admin.php"
+			],
+			[
+				"changerolefo",
+				"backend\\models\\ChangeRoleForm.php"
+			],
+			[
+				"funct/usercont",
+				"backend\\tests\\functional\\UserControllerCest.php"
+			],
+			[
+				"usercontcest",
+				"api\\tests\\api\\UserControllerCest.php"
+			],
+			[
+				"comm/test-local",
+				"common\\config\\test-local.php"
+			],
+			[
+				"comm/test-l",
+				"common\\config\\test-local.php"
+			],
+			[
+				"env/test/comm/main",
+				"environments\\tests\\common\\config\\main-local.php"
+			],
+			[
+				"comm/test.",
+				"common\\config\\test.php"
+			],
+			[
+				"distcontcest",
+				"backend\\tests\\functional\\DistributorControllerCest.php"
+			],
+			[
+				"yii/component",
+				"vendor\\yiisoft\\yii2\\base\\Component.php"
+			],
+			[
+				"back/cont/organizac",
+				"backend\\controllers\\OrganizationController.php"
+			],
+			[
+				"com/model/user",
+				"common\\models\\User.php"
+			],
+			[
+				"back/model/user",
+				"backend\\models\\User.php"
+			],
+			[
+				"comm/model/user",
+				"common\\models\\User.php"
+			],
+			[
+				"usercon",
+				"backend\\controllers\\UserController.php"
+			],
+			[
+				"changerole",
+				"backend\\models\\ChangeRoleForm.php"
+			],
+			[
+				"user/change-",
+				"backend\\views\\user\\change-role.php"
+			],
+			[
+				"user/_for",
+				"backend\\views\\user\\_form.php"
+			],
+			[
+				"merchantdistcont",
+				"backend\\controllers\\MerchantDistributorController.php"
+			],
+			[
+				"merchantcon",
+				"backend\\controllers\\MerchantController.php"
+			],
+			[
+				"base/distcon",
+				"backend\\controllers\\base\\DistributorController.php"
+			],
+			[
+				"findtra",
+				"common\\traits\\FindModelTrait.php"
+			],
+			[
+				"back/mod/dist",
+				"backend\\models\\Distributor.php"
+			],
+			[
+				"back/cont/organi",
+				"backend\\controllers\\OrganizationController.php"
+			],
+			[
+				"distributor/_fo",
+				"backend\\views\\distributor\\partial\\_form.php"
+			],
+			[
+				"distr/_form",
+				"backend\\views\\distributor-private-label\\_form.php"
+			],
+			[
+				"back/distcon",
+				"backend\\controllers\\DistributorController.php"
+			],
+			[
+				"comm/main-lo",
+				"common\\config\\main-local.php"
+			],
+			[
+				"dist/index",
+				"backend\\views\\distributor\\index.php"
+			],
+			[
+				"user/_user",
+				"backend\\views\\user\\_userdata.php"
+			],
+			[
+				"mig/user_ad",
+				"console\\migrations\\m170904_191142_user_admin.php"
+			],
+			[
+				"back/usercontro",
+				"backend\\controllers\\UserController.php"
+			],
+			[
+				"findmodeltra",
+				"common\\traits\\FindModelTrait.php"
+			],
+			[
+				"base/distribu",
+				"backend\\controllers\\base\\DistributorController.php"
+			],
+			[
+				"back/distrcon",
+				"backend\\controllers\\DistributorController.php"
+			],
+			[
+				"func/dist",
+				"backend\\tests\\functional\\DistributorControllerCest.php"
+			],
+			[
+				"comm/main-loca",
+				"common\\config\\main-local.php"
+			],
+			[
+				"env/test/yii",
+				"environments\\tests\\yii"
+			],
+			[
+				"env/test/back/inxe",
+				"environments\\tests\\backend\\web\\index.php"
+			],
+			[
+				"env/test/api/index",
+				"environments\\tests\\api\\web\\index.php"
+			],
+			[
+				"orderguidecest",
+				"api\\tests\\api\\OrderGuideControllerCest.php"
+			],
+			[
+				"global/order",
+				"backend\\modules\\global_import\\models\\OrderGuideForm.php"
+			],
+			[
+				"comm/tes",
+				"common\\config\\test-local.php"
+			],
+			[
+				"com/main-local",
+				"common\\config\\main-local.php"
+			],
+			[
+				"api/apitest",
+				"api\\tests\\_support\\ApiTester.php"
+			],
+			[
+				"api/orderguidecon",
+				"api\\modules\\v1\\controllers\\OrderGuideController.php"
+			],
+			[
+				"com/main-loc",
+				"common\\config\\main-local.php"
+			],
+			[
+				"api/orderguidecontr",
+				"api\\modules\\v1\\controllers\\OrderGuideController.php"
+			],
+			[
+				"orderguidecon",
+				"backend\\controllers\\OrderGuideController.php"
+			],
+			[
+				"order/adjus",
+				"backend\\views\\order\\adjustment.php"
+			],
+			[
+				"comm/test",
+				"common\\config\\test-local.php"
+			],
+			[
+				"com/test.p",
+				"common\\config\\test.php"
+			],
+			[
+				"com/model/orderitem",
+				"common\\models\\OrderItem.php"
+			],
+			[
+				"order/adjustmen",
+				"backend\\views\\order\\adjustment-history.php"
+			],
+			[
+				"back/model/orderitem",
+				"backend\\models\\OrderItem.php"
+			],
+			[
+				"back/orderitem",
+				"backend\\models\\OrderItem.php"
+			],
+			[
+				"env/prod/comm/main",
+				"environments\\prod\\common\\config\\main-local.php"
+			],
+			[
+				"mandrill/mailer",
+				"vendor\\nickcv\\yii2-mandrill\\src\\Mailer.php"
+			],
+			[
+				"dataload",
+				"console\\controllers\\DataLoadController.php"
+			],
+			[
+				"dataexport",
+				"console\\controllers\\DataExportController.php"
+			],
+			[
+				"nick/",
+				"vendor\\nickcv\\yii2-mandrill\\src\\Mailer.php"
+			],
+			[
+				"orderitem",
+				"common\\models\\OrderItem.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Anuar\\code\\php\\foodbambackend\\foodbambackend.sublime-project"
+			],
+			[
+				"foo",
+				"C:\\Users\\Anuar\\code\\php\\foodbambackend\\foodbambackend.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"_vintageous_last_buffer_search": "j",
+		"_vintageous_last_buffer_search_command": "vi_slash",
+		"_vintageous_last_char_search_command": "vi_big_t",
+		"_vintageous_last_character_search": "(",
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "C:\\Users\\Anuar\\code\\go\\src\\hello"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 168.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
